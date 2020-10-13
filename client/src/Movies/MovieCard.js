@@ -1,5 +1,24 @@
 import React from 'react';
 
 export default function MovieCard (props) {
-  return;
+  const { title, director, metascore, stars, onClick } = props;
+
+  return (
+    <div className="movie-card" onClick={onClick}> 
+      <h2>{title}</h2>
+      <div className="movie-director">
+        Director: <p>{director}</p>
+      </div>
+      <div className="movie-metascore"> 
+        Metascore: <p>{metascore}</p>
+      </div>
+      {stars ? <h3>Actors</h3> : null}
+      {stars ? stars.map((star) =>
+        <div key={star} className="movie-star">
+          {star}
+        </div>
+      )
+      : null}
+    </div>
+  );
 }
